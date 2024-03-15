@@ -1,0 +1,4 @@
+*.cpp
+.cph
+!week-01/
+!.gitignore
