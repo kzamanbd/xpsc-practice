@@ -1,4 +1,6 @@
-*.cpp
-.cph
-!week-01/
+# *.cpp
+# .cph
+# !week-01/
 !.gitignore
+*.o
+*.exe
