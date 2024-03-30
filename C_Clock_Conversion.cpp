@@ -4,19 +4,48 @@
 
 using namespace std;
 
-std::string convertTo12HourFormat(const std::string& timeStr) {
-    std::stringstream ss(timeStr);
-    int hour, minute;
-    char colon;
-    ss >> hour >> colon >> minute;
+string amToPmConversion(string time) {
+    int hourStr = stoi(time.substr(0, 2));
+    string res = time;
+    if (hourStr == 0) {
+        res = "12" + time.substr(2, 5) + " AM";
+    }
+    else if (hourStr == 12) {
+        res = "12" + time.substr(2, 5) + " PM";
+    }
+    else {
+        if (hourStr > 12) {
+            if ((hourStr - 12) > 9) {
+                res = to_string(hourStr - 12) + time.substr(2, 5) + " PM";
+            }
+            else {
+                res = "0" + to_string(hourStr - 12) + time.substr(2, 5) + " PM";
+            }
+        }
+        else {
+            res = time + " AM";
+        }
+    }
+    return res;
+}
 
-    cout << hour << colon << minute << endl;
-
-    std::ostringstream oss;
-    oss << std::setw(2) << std::setfill('0') << (hour < 12 ? hour : hour - 12) << ":"
-        << std::setw(2) << std::setfill('0') << minute << " "
-        << (hour < 12 ? "AM" : "PM");
-    return oss.str();
+string pmToAmConversion(string& time) {
+    string hoursStr = time.substr(0, 2);
+    int hours = stoi(hoursStr);
+    if (time.find("PM") != -1) {
+        if (hours == 12) {
+            hoursStr = "12";
+        }
+        else {
+            hoursStr = to_string(hours + 12);
+        }
+    }
+    else {
+        if (hours == 12) {
+            hoursStr = "00";
+        }
+    }
+    return time.replace(0, 2, hoursStr).erase(time.size() - 2);
 }
 
 int main() {
@@ -26,26 +55,12 @@ int main() {
 
     int tc;
     cin >> tc;
+    cin.ignore();
     while (tc--) {
         string time;
-        cin >> time;
-        // int hourStr = stoi(time.substr(0, 2));
-        // if (hourStr == 0) {
-        //     cout << "12" << time.substr(2, 5) << " AM" << endl;
-        // }
-        // else if (hourStr == 12) {
-        //     cout << "12" << time.substr(2, 5) << " PM" << endl;
-        // }
-        // else {
-        //     if (hourStr > 12) {
-        //         cout << "0" << hourStr - 12 << time.substr(2, 5) << " PM" << endl;
-        //     }
-        //     else {
-        //         cout << time << " AM" << endl;
-        //     }
-        // }
-
-        cout << convertTo12HourFormat(time) << endl;
+        getline(cin, time);
+        // cout << amToPmConversion(time) << endl;
+        cout << pmToAmConversion(time) << endl;
 
     }
     return 0;

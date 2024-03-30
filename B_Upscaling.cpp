@@ -14,14 +14,14 @@ int main() {
     while (tc--) {
         int n;
         cin >> n;
-        for (int i = 1; i <= n; i++) {
-            for (int j = 1; j <= n; j++) {
-                if (i % 2 == 1) {
-                    cout << "##";
-                }
-                else {
-                    cout << "..";
-                }
+        int newLine = n;
+        n = n * n;
+        if (n == 1) {
+            cout << "##\n##" << endl;
+        }
+        else {
+            for (int i = 1; i <= n; i++) {
+                cout << "##..";
             }
         }
     }
