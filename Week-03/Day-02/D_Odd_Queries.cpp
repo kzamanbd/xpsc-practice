@@ -1,3 +1,28 @@
+/*
+* Author: kzamanbd (kzamanbn@gmail.com)
+* Created: 31-03-2024 23:26:21
+* Github: https://github.com/kzamanbd
+* LeetCode: https://github.com/kzamanbd
+* Copyright (c) 2023 - 2024 KAMRUZZAMAN
+*/
+
+/*
+ * Author: KAMRUZZAMAN
+ * Created Date: Sunday Mar 2024
+ * -----
+ * Last Modified: Sun Mar 31 2024
+ * Modified By: KAMRUZZAMAN (kzamanbn@gmail.com)
+ * -----
+ * Github: https://github.com/kzamanbd
+ * LeetCode: https://github.com/kzamanbd
+ * Copyright (c) 2024 KAMRUZZAMAN
+ * -----
+ * HISTORY:
+ * Date      	By	Comments
+ * ----------	---	---------------------------------------------------------
+ */
+
+
 #include <bits/stdc++.h>
 #define ll long long
 #define pi pair<int,int>

@@ -4,6 +4,7 @@
 #define pi pair<int,int>
 #define all(x) x.begin(),x.end()
 #define range(i,n) for(int i=0;i<n;i++)
+#define in_range(i,x,n) for(int i=x;i<n;i++)
 #define fasterIO ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
 
 using namespace std;
@@ -17,24 +18,26 @@ int main() {
     vector<int> arr1(n), arr2(m);
     int i, j;
     range(i, n) cin >> arr1[i];
-    range(i, m) cin >> arr2[i];
-
-    vector<int> res;
+    range(j, n) cin >> arr2[j];
+    vector<int> res(m);
     i = 0, j = 0;
-    while (i < n || j < m) {
-        if (i < n && arr1[i] < arr2[j]) {
-            res.push_back(arr1[i]);
-            i++;
+    int count = 0;
+    while (j < m) {
+        if (arr2[j] > arr1[i]) {
+            count++;
+            res[j] = res.back() + count;
+            j++;
         }
         else {
-            if (j < m) {
-                res.push_back(arr2[j]);
-                j++;
-            }
+            i++;
+            count = 0;
         }
     }
-    for (int x : res) {
-        cout << x << " ";
+    for (auto val : res) {
+        cout << val << " ";
     }
+
+
+
     return 0;
 }
