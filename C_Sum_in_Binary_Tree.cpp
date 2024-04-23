@@ -16,22 +16,16 @@ int main() {
     int tc;
     cin >> tc;
     while (tc--) {
-        string str;
-        cin >> str;
-        int n = str.size();
+        ll n;
+        cin >> n;
 
-        vector<pair<char, int>> orders;
-
-        for (int i = 0; i < n; i++) {
-            char c = str[i];
-            if (c >= str[0] && c <= str[n - 1]) {
-                orders.push_back({ c, i });
-            }
+        ll ans = 0;
+        while (n != 0) {
+            ans += n;
+            n /= 2LL;
         }
 
-
-        // sort(str.begin(), str.end(), );
-        cout << str << endl;
+        cout << ans << endl;
     }
     return 0;
 }
