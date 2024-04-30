@@ -1,0 +1,10 @@
+{
+    "editor.formatOnSave": true,
+    "github.copilot.enable": {
+        "c": false,
+        "cpp": false
+    },
+    "files.associations": {
+        "iostream": "cpp"
+    }
+}
