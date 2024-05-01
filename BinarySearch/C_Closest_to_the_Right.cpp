@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
 #define endl "\n"
 #define ll long long
-#define PQ priority_queue
 #define pi pair<int,int>
 #define all(x) x.begin(),x.end()
 #define range(i,n) for(int i=0;i<n;i++)
@@ -16,7 +15,7 @@ int binarySearch(vector<int> nums, int target) {
 
     while (l <= r) {
         int mid = (l + r) / 2;
-        if (nums[mid] <= target) {
+        if (nums[mid] < target) {
             l = mid + 1;
             idx = mid;
         }
@@ -25,7 +24,7 @@ int binarySearch(vector<int> nums, int target) {
         }
     }
 
-    return idx + 1;
+    return idx == -1 ? 1 : idx + 2;
 }
 
 int main() {
